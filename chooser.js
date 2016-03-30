@@ -25,10 +25,10 @@ var setCourseToColor =
         chrome.tabs.query(
             {active: true, currentWindow: true}, 
             function(tabs) {
-                console.log(tabs);
+                //console.log(tabs);
                 chrome.tabs.sendMessage(tabs[0].id, 
-                    {"courseName":course, "color":color}, 
-                    function(response) { console.log(response); }
+                    {"courseName":course, "color":color}
+                    //function(response) { console.log(response); }
                 );
             }
         );
