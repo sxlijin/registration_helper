@@ -7,9 +7,14 @@ input {
     color: white;
     background-color: #4f8edc;
     text-align: center;
-    font-size: 10px;
+    font-family: "Tahoma", "Geneva", "Helvetica", clean, sans-serif;
+    font-size: 14px;
+    height: 30px;
 }
-::-webkit-input-placeholder { color:white; }
+::-webkit-input-placeholder { 
+    color:white; 
+    opacity:50;
+}
 
 section {
     width: 80%;
@@ -19,9 +24,9 @@ section {
 div.vcenter {
   position: relative;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(50%);
 }
-div.floatleft { float: left; }
+div.floatleft { float: left; height:50px; padding: 5px; }
 div.left {
     width: 25%;
     height: 100px;
