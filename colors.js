@@ -1,4 +1,4 @@
-var selector = '.eventSaved'; // CSS selector corresp. to courses
+var selector = '.event'; // CSS selector corresp. to courses
 
 var getDivsForCSS = 
     function(s) {
