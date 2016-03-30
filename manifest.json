@@ -1,0 +1,25 @@
+{
+    "manifest_version": 2,
+
+    "name": "Getting started example",
+    "description": "This extension shows a Google Image search result for the current page",
+    "version": "1.0",
+
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_popup": "picker.html",
+        "default_title": "Giving you colors~"
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://webapp.mis.vanderbilt.edu/more/*"],
+            "css": [],
+            "js": ["colors.js"]
+        }
+    ],
+    "permissions": [
+        "activeTab",
+        "https://ajax.googleapis.com/", 
+        "https://webapp.mis.vanderbilt.edu/"
+    ]
+}

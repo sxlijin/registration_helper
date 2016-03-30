@@ -1,0 +1,33 @@
+body {
+    font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+    font-size: 100%;
+}
+
+input {
+    color: white;
+    background-color: #4f8edc;
+    text-align: center;
+    font-size: 10px;
+}
+::-webkit-input-placeholder { color:white; }
+
+section {
+    width: 80%;
+    height: 100px;
+    margin: auto;
+}
+div.vcenter {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+div.floatleft { float: left; }
+div.left {
+    width: 25%;
+    height: 100px;
+    float: left;
+}
+div.right {
+    margin-left: 25%;
+    height: 100px;
+}
