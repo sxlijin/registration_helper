@@ -18,6 +18,7 @@
         }
     ],
     "permissions": [
+        "storage",
         "activeTab",
         "https://ajax.googleapis.com/", 
         "https://webapp.mis.vanderbilt.edu/"
