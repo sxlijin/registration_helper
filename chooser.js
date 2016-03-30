@@ -1,7 +1,6 @@
 // CSS IDs of <input> elems to listen for input on
 var inputElemIDs = ["colorPalette", "colorValue", "courseName"];
 
-
 var clearInput = function(e) { e.target.value = ""; };
 
 var getInputElementById = 
@@ -13,9 +12,10 @@ var getValueOfInputID =
 var setValueOfInputID = 
     function(id, val) { getInputElementById(id).value = val; };
 
-var setBackgroundColorOfInputs = 
+var setColorOfInputs = 
     function(color) {
-        for (var i = 0; i < inputElemIDs.length; i++) {
+        getInputElementById(inputElemIDs[0]).style.value = color;
+        for (var i = 1; i < inputElemIDs.length; i++) {
             getInputElementById(inputElemIDs[i]).style.backgroundColor = color;
         }
     };
@@ -49,7 +49,7 @@ var parseInput =
             
         var course = getValueOfInputID("courseName");
         //console.log(color);
-        setBackgroundColorOfInputs(color);
+        setColorOfInputs(color);
         setCourseToColor(course, color);
     };
 

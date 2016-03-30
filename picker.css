@@ -8,31 +8,25 @@ input {
     background-color: #4f8edc;
     text-align: center;
     font-family: "Tahoma", "Geneva", "Helvetica", clean, sans-serif;
-    font-size: 14px;
+    font-size: 14px/1.0;
     height: 30px;
+    border: none;
+    border-radius: 2px;
 }
-::-webkit-input-placeholder { 
-    color:white; 
-    opacity:50;
+::-webkit-input-placeholder {
+    color:white;
+    opacity:0.7;
 }
+input:focus::-webkit-input-placeholder { 
+    color:transparent; }
 
-section {
-    width: 80%;
-    height: 100px;
-    margin: auto;
+div.vcenterParent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
-div.vcenter {
-  position: relative;
-  top: 50%;
-  transform: translateY(50%);
-}
-div.floatleft { float: left; height:50px; padding: 5px; }
-div.left {
-    width: 25%;
-    height: 100px;
-    float: left;
-}
-div.right {
-    margin-left: 25%;
-    height: 100px;
+div.floatleft { 
+    float: left; 
+    height:50px; 
+    margin: 10px;
 }

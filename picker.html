@@ -5,33 +5,31 @@
  value "popup.html".
  -->
 <html>
-  <head>
-    <title>Getting Started Extension's Popup</title>
-    <link rel="stylesheet" type="text/css" href="picker.css" media="screen" />
+    <head>
+        <title>Getting Started Extension's Popup</title>
+        <link rel="stylesheet" type="text/css" href="picker.css" media="screen" />
 
-    <!--
-      - JavaScript and HTML must be in separate files: see our Content Security
-      - Policy documentation[1] for details and explanation.
-      -
-      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
-     -->
-  <script type = "text/javascript" src="chooser.js"></script>
-  </head>
-  <body>
-    <div id="section">
-        <section style="width:400px">
-            <div class="floatleft">
-                <input id="colorPalette" class="vcenter" type="color" value="#4F8EDC" />
+        <!--
+            - JavaScript and HTML must be in separate files: see our Content Security
+            - Policy documentation[1] for details and explanation.
+            -
+            - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
+         -->
+    <script type = "text/javascript" src="chooser.js"></script>
+    </head>
+    <body>
+        <div class="container" style="width:500px;">
+            <div class="floatleft vcenterParent">
+                <input id="colorPalette" type="color" value="#4F8EDC" 
+                        style="background-color:transparent;"/>
             </div>
-            <div class="floatleft">
-                <input id="colorValue" class="vcenter" type="text" value="#4F8EDC" />
+            <div class="floatleft vcenterParent">
+                <input id="colorValue" type="text" placeholder="#4F8EDC" />
             </div>
-            <div class="floatleft">
-                <input id="courseName" class="vcenter" type="text" placeholder="VANDY-0000-01"
-                    style="height:22.83333px;width:122px" />
+            <div class="floatleft vcenterParent">
+                <input id="courseName" type="text" placeholder="VANDY-0000-01" />
             </div>
-        </section>
-    </div>
-  </body>
+        </div>
+    </body>
 </html>
 
