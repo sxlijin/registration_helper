@@ -1,6 +1,10 @@
+// code taken from http://stackoverflow.com/questions/5202296/
+//                          add-a-hook-to-all-ajax-requests-on-a-page
+
 function addXMLRequestCallback(callback){
     var oldSend, i;
-    if( XMLHttpRequest.callbacks ) {
+    if( XMLHttpRequest.hasOwnProperty("callbacks")
+        && Array.isArray(XMLHttpRequest.callbacks)) {
         // we've already overridden send() so just add the callback
         XMLHttpRequest.callbacks.push( callback );
     } else {
@@ -26,9 +30,6 @@ function addXMLRequestCallback(callback){
 }
 
 // e.g.
-addXMLRequestCallback( function( xhr ) {
-    console.log( xhr.responseText ); // (an empty string)
-});
 addXMLRequestCallback( function( xhr ) {
     console.dir( xhr ); // have a look if there is anything useful here
 });
