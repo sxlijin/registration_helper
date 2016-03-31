@@ -54,9 +54,9 @@ function retrieveCourseColors() {
     //console.log('retrieving: ');
     //console.log(courses);
     function retrieveColorCallback(colors) {
-        console.log('retrieve callback:');
-        console.log(courses);
-        console.log(colors);
+        //console.log('retrieve callback:');
+        //console.log(courses);
+        //console.log(colors);
         for (var i = 0; i < courses.length; i++) {
             if (colors.hasOwnProperty(courses[i])) {
                 setCourseToColor(courses[i], colors[courses[i]]);
@@ -87,3 +87,5 @@ chrome.runtime.onMessage.addListener(
         }
     }
 );
+window.addEventListener("resize", function() { 
+    console.log("resize fired"); retrieveCourseColors(); });
