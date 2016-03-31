@@ -7,14 +7,14 @@
 
     "browser_action": {
         "default_icon": "icon.png",
-        "default_popup": "picker.html",
+        "default_popup": "popup.html",
         "default_title": "Giving you colors~"
     },
     "content_scripts": [
         {
             "matches": ["https://webapp.mis.vanderbilt.edu/more/*"],
             "css": [],
-            "js": ["colors.js"]
+            "js": ["recolor_courses.js"]
         }
     ],
     "permissions": [
