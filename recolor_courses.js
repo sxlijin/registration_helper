@@ -43,24 +43,25 @@ function saveCourseAndColor(course, color) {
     dict[course] = color;
     chrome.storage.sync.set(dict);
     console.log('saved course and color: ');
+    console.log(dict);
 };
 
 function retrieveCourseColors() {
-    console.log('retrieving course colors');
+    //console.log('retrieving course colors');
     var courses = getArrayOfCourses();
-    console.log('retrieving: ');
-    console.log(courses);
+    //console.log('retrieving: ');
+    //console.log(courses);
     var retrieveColorCallback = 
-        function(items) {
+        function(colors) {
             console.log('retrieve callback:');
-            console.log(items);
+            console.log(colors);
             for (var i = 0; i < courses.length; i++) {
-                if (items.hasOwnProperty(courses[i])) {
-                    setCourseToColor(courses[i], items[courses[i]]);
+                if (colors.hasOwnProperty(courses[i])) {
+                    setCourseToColor(courses[i], colors[courses[i]]);
                 }
             }
         };
-    var colors = chrome.storage.sync.get(courses, retrieveColorCallback);
+    chrome.storage.sync.get(courses, retrieveColorCallback);
 };
 
 function resetColor(s) { setCourseToColor(s, '#4f8edc'); };
@@ -73,7 +74,8 @@ function strongFocus(s) { setCourseToColor(s, "#4f8e8c"); };
 
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) { 
-        retrieveCourseColors();
+        console.log('message listener from content script');
+        //retrieveCourseColors();
         setCourseToColor(request.courseName, request.color); 
     }
 );

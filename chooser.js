@@ -11,9 +11,10 @@ function setValueOfInputID(id, val) { getInputElementById(id).value = val; }
 function setColorOfInputs(color) {
     if (validateColor(color) === '') { return null; }
     setValueOfInputID(inputElemIDs[0], colorToHex(color));
-    for (var i = 1; i < inputElemIDs.length; i++) {
-        getInputElementById(inputElemIDs[i]).style.backgroundColor = color;
-    }
+    setValueOfInputID(inputElemIDs[1], colorToHex(color));
+
+    getInputElementById(inputElemIDs[1]).style.backgroundColor = color;
+    getInputElementById(inputElemIDs[2]).style.backgroundColor = color;
 }
 
 function setCourseToColor(course, color) {
@@ -29,10 +30,11 @@ function setCourseToColor(course, color) {
 }
 
 function parseInput(e) {
-    var color = e.target.id === "courseName" ? e.target.backgroundColor
+    var color = e.target.id === "courseName" ? e.target.style.backgroundColor
                                              : e.target.value;
     if (validateColor(color) === '') { return null; }
         
+    console.log(color);
     var course = getValueOfInputID("courseName");
     setColorOfInputs(color);
     setCourseToColor(course, color);
