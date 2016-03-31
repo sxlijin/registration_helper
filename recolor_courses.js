@@ -43,7 +43,6 @@ function saveCourseAndColor(course, color) {
     dict[course] = color;
     chrome.storage.sync.set(dict);
     console.log('saved course and color: ');
-    console.log(dict);
 };
 
 function retrieveCourseColors() {

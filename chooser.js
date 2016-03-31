@@ -9,7 +9,8 @@ function getValueOfInputID(id) { return getInputElementById(id).value; }
 function setValueOfInputID(id, val) { getInputElementById(id).value = val; }
 
 function setColorOfInputs(color) {
-    getInputElementById(inputElemIDs[0]).style.value = color;
+    if (validateColor(color) === '') { return null; }
+    setValueOfInputID(inputElemIDs[0], colorToHex(color));
     for (var i = 1; i < inputElemIDs.length; i++) {
         getInputElementById(inputElemIDs[i]).style.backgroundColor = color;
     }
@@ -28,19 +29,11 @@ function setCourseToColor(course, color) {
 }
 
 function parseInput(e) {
-    var color = e.target.value;
-    if (e.target.id === "colorPalette") {
-        setValueOfInputID("colorValue", color);
-    }
-    else if (e.target.id === "colorValue") {
-        setValueOfInputID("colorPalette", color);
-    }
-    else {
-        color = getValueOfInputID("colorPalette");
-    }
+    var color = e.target.id === "courseName" ? e.target.backgroundColor
+                                             : e.target.value;
+    if (validateColor(color) === '') { return null; }
         
     var course = getValueOfInputID("courseName");
-    //console.log(color);
     setColorOfInputs(color);
     setCourseToColor(course, color);
 };
