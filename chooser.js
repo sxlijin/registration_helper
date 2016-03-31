@@ -11,21 +11,26 @@ function setValueOfInputID(id, val) { getInputElementById(id).value = val; }
 function setColorOfInputs(color) {
     if (validateColor(color) === '') { return null; }
     setValueOfInputID(inputElemIDs[0], colorToHex(color));
-    setValueOfInputID(inputElemIDs[1], colorToHex(color));
+    if (validateColor(getValueOfInputID(inputElemIDs[1])) 
+            !== validateColor(color))
+    { setValueOfInputID(inputElemIDs[1], colorToHex(color)); }
 
     getInputElementById(inputElemIDs[1]).style.backgroundColor = color;
     getInputElementById(inputElemIDs[2]).style.backgroundColor = color;
 }
 
 function setCourseToColor(course, color) {
+    broadcastMessage({  command:"set_color", 
+                        "courseName":course, 
+                        "color":color
+                        });
+}
+
+function broadcastMessage(message) {
+    message.origin = "chooser.js";
     chrome.tabs.query(
         {active: true, currentWindow: true}, 
-        function(tabs) {
-            chrome.tabs.sendMessage(
-                tabs[0].id, 
-                {"courseName":course, "color":color}
-            );
-        }
+        function(tabs) { chrome.tabs.sendMessage(tabs[0].id, message); }
     );
 }
 

@@ -36,5 +36,5 @@ addXMLRequestCallback( function(xhr) {
 function xhrEventPoster(xhr) {
     //console.log('response url should be:        [' + xhr.responseURL+ ']');
     //console.log('response readystate should be: [' + xhr.readyState + ']');
-    window.postMessage({"xhr": xhr.responseURL}, "*");
+    window.postMessage({"xhr": xhr.response, "xhrState": xhr.readyState}, "*");
 }
