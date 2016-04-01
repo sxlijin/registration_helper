@@ -87,5 +87,8 @@ chrome.runtime.onMessage.addListener(
         }
     }
 );
-window.addEventListener("resize", function() { 
-    console.log("resize fired"); retrieveCourseColors(); });
+
+new MutationObserver(retrieveCourseColors)
+    .observe(document.querySelector('body'), 
+             { childList: true }
+             );
