@@ -27,8 +27,8 @@ function getArrayForCourse(s) {
 
 function setCourseToColor(s, color) {
     color = validateColor(color);
-    console.log("inputs represent valid course and color: " 
-                 + ((getArrayOfCourses().includes(s) || color === '') ? "true" : "false"));
+    //console.log("inputs represent valid course and color: " 
+    //             + ((getArrayOfCourses().includes(s) || color === '') ? "true" : "false"));
     if (!(getArrayOfCourses().includes(s) || color === '')) { return; }
 
     var elems = getArrayForCourse(s);
@@ -44,8 +44,8 @@ function saveCourseAndColor(course, color) {
     dict = {};
     dict[course] = color;
     chrome.storage.local.set(dict);
-    console.log('saved course and color: ');
-    console.log(dict);
+    //console.log('saved course and color: ');
+    //console.log(dict);
 };
 
 function retrieveCourseColors() {
@@ -77,7 +77,7 @@ function strongFocus(s) { setCourseToColor(s, "#4f8e8c"); };
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) { 
         // require the type property of request
-        console.log(request);
+        //console.log(request);
         if (!request.command || !request.origin) { return; }
         if (request.command === "set_color") { 
             setCourseToColor(request.courseName, request.color); 

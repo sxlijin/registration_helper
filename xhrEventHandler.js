@@ -6,8 +6,8 @@ function injectXHReventListener() {
 }
 
 function broadcastMessage(message) {
-    console.log("sending message from xhr handler");
-    console.log(message);
+    //console.log("sending message from xhr handler");
+    //console.log(message);
     chrome.runtime.sendMessage(message);
 }
 
