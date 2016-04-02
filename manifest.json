@@ -11,7 +11,8 @@
         "default_title": "Giving you colors~"
     },
     "background": {
-        "scripts":  ["background.js"]
+        "scripts":  ["eventCartLoad.js"],
+        "persistent": false
     },
     "content_scripts": [
         {
