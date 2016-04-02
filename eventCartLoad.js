@@ -1,4 +1,8 @@
 // Implements the mediator design pattern.
+//
+// Called when xhrEventHandler broadcasts messages to re-distribute them.
+// xhrEventHandler only fires on the xmlHttpRequest corresponding to when 
+// there is a new batch of classes being displayed on the page.
 
 /** 
  * Sends message to the currently active tab.
