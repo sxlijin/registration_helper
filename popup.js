@@ -61,6 +61,7 @@ function setCourseToColor(course, color) {
  * @param {Object} parameters  : parameters for the named command
  */
 function broadcastCommand(commandName, parameters) {
+    if (typeof parameters === 'undefined') parameters = {};
     parameters.command = commandName;
     broadcastMessage(parameters); 
 }
