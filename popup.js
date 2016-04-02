@@ -93,7 +93,7 @@ function onInput(e) {
     if (validateColor(color) === '') { return null; }
         
     setColorOfInputs(color);
-    setCourseToColor(getValueOfInputID('courseName', color);
+    setCourseToColor(getValueOfInputID('courseName'), color);
 };
 
 
