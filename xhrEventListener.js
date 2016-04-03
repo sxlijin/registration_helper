@@ -27,7 +27,8 @@ function setXMLRequestCallback(callback){
 }
 
 
-/** Callback to be initiated when "readystatechange" Event fires for any xhr.
+/** 
+ * Callback to be initiated when "readystatechange" Event fires for any xhr.
  * @param {Object} xhr : call window.postMessage() on characteristics of the xhr
  *     whenever its "readystatechange" Event fires; there seem to be security 
  *     limitations that prevent simply posting the xhr Event.
@@ -36,8 +37,12 @@ function xhrEventPoster(xhr) {
     //console.log(`response url should be:        [${xhr.responseURL}]`);
     //console.log(`response readystate should be: [${xhr.readyState}]`);
     window.postMessage({"xhr": xhr.response, "xhrState": xhr.readyState}, "*");
+    console.log('dispatching xhrProcessedEvent');
+    xhr.dispatchEvent(xhrProcessedEvent);
 }
 
+
+var xhrProcessedEvent = new Event('xhrProcessed');
 
 // Hook onto xhr.onreadystatechange with a callback to a window.postMessage() wrapper
 setXMLRequestCallback( function(xhr) {

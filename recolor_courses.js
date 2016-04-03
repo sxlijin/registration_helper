@@ -135,3 +135,8 @@ new MutationObserver(retrieveCourseColors)
     .observe(document.querySelector('body'), 
              { childList: true }
              );
+
+window.addEventListener('xhrProcessed', function(e) {
+    console.log('xhrProcessed event fired and recognized');
+    console.log(e);
+});
