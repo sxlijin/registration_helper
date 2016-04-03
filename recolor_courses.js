@@ -122,6 +122,9 @@ chrome.runtime.onMessage.addListener(
     }
 );
 
+function retrieveCourseColors2() {
+    console.log('override to retrieving course colors');
+}
 
 // When the window is resized, something weird happens. It's not quite clear
 // what that exact behavior is, but this much is known: the <div>s present 
@@ -131,12 +134,13 @@ chrome.runtime.onMessage.addListener(
 // retrieveCourseColors() to window.resize does not consistently succeed at
 // recoloring the <div>s, presumably due to the inherent async nature; instead,
 // a mutationObserver is attached to <body>, the direct parent of these <div>s.
-new MutationObserver(retrieveCourseColors)
+new MutationObserver(retrieveCourseColors2)
     .observe(document.querySelector('body'), 
              { childList: true }
              );
 
 window.addEventListener('xhrProcessed', function(e) {
-    console.log('xhrProcessed event fired and recognized');
-    console.log(e);
+    // console.log('xhrProcessed event fired and recognized');
+    // console.log(e);
+    retrieveCourseColors();
 });

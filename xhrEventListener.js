@@ -36,9 +36,12 @@ function setXMLRequestCallback(callback){
 function xhrEventPoster(xhr) {
     //console.log(`response url should be:        [${xhr.responseURL}]`);
     //console.log(`response readystate should be: [${xhr.readyState}]`);
-    window.postMessage({"xhr": xhr.response, "xhrState": xhr.readyState}, "*");
+    //window.postMessage({"xhr": xhr.response, "xhrState": xhr.readyState}, "*");
     console.log('dispatching xhrProcessedEvent');
-    xhr.dispatchEvent(xhrProcessedEvent);
+
+    // xhr has only been fully processed when readyState is 4
+    // event triggers <div> recoloring, should only fire when this is possible
+    if (xhr.readyState == 4) { window.dispatchEvent(xhrProcessedEvent); }
 }
 
 
