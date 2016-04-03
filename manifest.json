@@ -18,7 +18,7 @@
         {
             "matches": ["https://webapp.mis.vanderbilt.edu/more/*"],
             "css": [],
-            "js": ["recolor_courses.js", "xhrEventHandler.js"]
+            "js": ["lib/colors.js", "recolor_courses.js", "xhrEventHandler.js"]
         }
     ],
     "permissions": [

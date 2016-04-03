@@ -1,3 +1,5 @@
+// popup.html imports lib/colors.js
+
 // CSS IDs of <input> elems to listen for input on
 var inputElemIDs = ["colorPalette", "colorValue", "courseName"];
 
