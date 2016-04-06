@@ -26,8 +26,5 @@
         "activeTab",
         "https://ajax.googleapis.com/", 
         "https://webapp.mis.vanderbilt.edu/"
-    ],
-    "web_accessible_resources": [
-        "xhrEventListener.js"
     ]
 }
