@@ -1,8 +1,8 @@
 {
     "manifest_version": 2,
 
-    "name": "Getting started example",
-    "description": "This extension shows a Google Image search result for the current page",
+    "name": "VU Class Registration Helper",
+    "description": "Allows color coding of your class registration schedule",
     "version": "1.0",
 
     "browser_action": {
@@ -11,7 +11,7 @@
         "default_title": "Giving you colors~"
     },
     "background": {
-        "scripts":  ["eventCartLoad.js"],
+        "scripts": ["recolor_courses.js"],
         "persistent": false
     },
     "content_scripts": [
@@ -24,7 +24,7 @@
     "permissions": [
         "storage",
         "activeTab",
-        "https://ajax.googleapis.com/", 
+        "https://ajax.googleapis.com/",
         "https://webapp.mis.vanderbilt.edu/"
     ]
 }
